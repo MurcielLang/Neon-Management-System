@@ -1,10 +1,10 @@
-# NgawiMarket Inventory Project
+# NeonMarket Inventory Project
 
 A simple supermarket inventory management system built with Python and Excel.
 
 ## About
 
-NgawiMarket Inventory Project is my first Python project. The project is designed to manage a fictional supermarket inventory data.
+NeonMarket Inventory Project is my first Python project. The project is designed to manage a fictional supermarket inventory data.
 
 ## Features
 -View inventory
