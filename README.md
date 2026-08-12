@@ -7,23 +7,22 @@ A simple supermarket inventory management system built with Python and Excel.
 NeonMarket Inventory Project is my first Python project. The project is designed to manage a fictional supermarket inventory data.
 
 ## Features
--View inventory
--Search items
--Add items
--Edit items
--Delete items
--Add stock
--Remove stock
--Sort items
--Filter items
+- View inventory 
+- Search items 
+- Add items 
+- Remove items 
+- Delete items 
+- Edit items 
+- Sort items 
+- Filter items 
 
 ## Technologies
--Python
--Pandas
--OpenPyXl
--Excel
--Git
--Github
+- Python
+- Excel
+- Pandas
+- Openpyxl
+- Git
+- Github
 
 ## Project Status
 Currently in development.
