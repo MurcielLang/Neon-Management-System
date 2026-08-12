@@ -39,11 +39,12 @@ def search_harga():
         print(hasil)
 
 def search_stok():
-    stok = int(input('Masukan Stok Barang Yang Ingin Dicari: '))
+    stok = int(input('Masukkan Stok Barang Yang Ingin Dicari: '))
     hasil = df[df['Stok'] == stok]
     if hasil.empty:
-        print('Data tidak ditemukan!')
+        print("Data tidak ditemukan!")
     else:
         print(hasil)
-
-search_harga()
+                            
+search_stok()
+    
