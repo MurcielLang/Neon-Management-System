@@ -45,6 +45,58 @@ def search_stok():
         print("Data tidak ditemukan!")
     else:
         print(hasil)
-                            
-search_stok()
-    
+
+def main_menu():
+    while True: 
+        print()
+        print('=' * 40)
+        print('          WELCOME TO NEON MARKET          ')
+        print("=" * 40)    
+        print("1. Lihat Inventory")
+        print("2. Cari Barang")
+        print("3. Kelola Barang")
+        print("4. Sortir Barang ")
+        print("5 Filter Barang")
+        print("0. View Inventory")
+
+        answer = int(input("Pilih Menu: "))
+        if answer == 1:
+            check_inventory()
+            break
+        elif answer == 2:
+            while True:
+                print("===== CARI BARANG =====")
+                print("1. Cari barang berdasarkan ID")
+                print("2. Cari barang berdasarkan nama")
+                print("3. Cari barang berdasarkan jenis")
+                print("4. Cari barang berdasarkan harga")
+                print("5. Cari barang berdasarkan stok")
+                print("0. Kembali ke menu")
+
+                search = int(input("Pilih jenis pencarian: "))
+                if search == 1:
+                    search_id()
+                    input('Tekan ENTER untuk kembali ke menu cari barang')
+                elif search == 2:
+                    search_barang()
+                    input('Tekan ENTER untuk kembali ke menu cari barang')
+                elif search == 3:
+                    search_jenis()
+                    input('Tekan ENTER untuk kembali ke menu cari barang')
+                elif search == 4:
+                    search_harga()
+                    input('Tekan ENTER untuk kembali ke menu cari barang')
+                elif search == 5:
+                    search_stok()
+                    input('Tekan ENTER untuk kembali ke menu cari barang')
+                else:
+                    print("Pilihan tidak tersedia")
+                    input('Tekan ENTER untuk kembali ke menu cari barang')
+
+                if search == 0:
+                    break
+
+main_menu()
+
+
+
