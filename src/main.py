@@ -74,7 +74,9 @@ def main_menu():
                 print("0. Kembali ke menu utama")
 
                 search = int(input("Pilih jenis pencarian: "))
-                if search == 1:
+                if search == 0:
+                    break
+                elif search == 1:
                     search_id()
                     input('Tekan ENTER untuk kembali ke menu cari barang')
                 elif search == 2:
@@ -89,12 +91,10 @@ def main_menu():
                 elif search == 5:
                     search_stok()
                     input('Tekan ENTER untuk kembali ke menu cari barang')
+
                 else:
                     print("Pilihan tidak tersedia")
-                    input('Tekan ENTER untuk kembali ke menu cari barang')
-
-                if search == 0:
-                    break
+                
 
 main_menu()
 
