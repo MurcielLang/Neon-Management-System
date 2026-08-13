@@ -56,13 +56,13 @@ def main_menu():
         print("2. Cari Barang")
         print("3. Kelola Barang")
         print("4. Sortir Barang ")
-        print("5 Filter Barang")
-        print("0. View Inventory")
+        print("5. Filter Barang")
+        print("0. Keluar")
 
         answer = int(input("Pilih Menu: "))
         if answer == 1:
             check_inventory()
-            break
+            input('Tekan ENTER untuk kembali ke menu utama')
         elif answer == 2:
             while True:
                 print("===== CARI BARANG =====")
@@ -71,7 +71,7 @@ def main_menu():
                 print("3. Cari barang berdasarkan jenis")
                 print("4. Cari barang berdasarkan harga")
                 print("5. Cari barang berdasarkan stok")
-                print("0. Kembali ke menu")
+                print("0. Kembali ke menu utama")
 
                 search = int(input("Pilih jenis pencarian: "))
                 if search == 1:
