@@ -4,8 +4,46 @@ df = pd.read_excel("data/Inventory.xlsx")
 def check_inventory():
     print(df)
 
+def search_menu():
+    while True:
+                print("===== CARI BARANG =====")
+                print("1. Cari barang berdasarkan ID")
+                print("2. Cari barang berdasarkan nama")
+                print("3. Cari barang berdasarkan jenis")
+                print("4. Cari barang berdasarkan harga")
+                print("5. Cari barang berdasarkan stok")
+                print("0. Kembali ke menu utama")
+
+                while True:
+                    try:
+                        search = int(input("Pilih jenis pencarian: "))
+                        break
+                    except ValueError:
+                        print("Error! Harap masukkan angka!")
+                        continue
+
+                if search == 0:
+                    return
+                elif search == 1:
+                    search_id()
+                    input("Tekan ENTER untuk kembali ke menu cari barang")
+                elif search == 2:
+                    search_barang()
+                    input("Tekan ENTER untuk kembali ke menu cari barang")
+                elif search == 3:
+                    search_jenis()
+                    input("Tekan ENTER untuk kembali ke menu cari barang")
+                elif search == 4:
+                    search_harga()
+                    input("Tekan ENTER untuk kembali ke menu cari barang")
+                elif search == 5:
+                    search_stok()
+                    input("Tekan ENTER untuk kembali ke menu cari barang")
+                else:
+                    print("Pilihan tidak tersedia")
+
 def search_id():
-    ID = input("Masukkan ID Barang Yang Ingin Dicari: ").upper()
+    ID = int(input("Masukkan ID Barang Yang Ingin Dicari: "))
     hasil = df[df['ID'] == ID]
     if hasil.empty:
         print('Data tidak ditemukan!')
@@ -59,12 +97,30 @@ def search_stok():
     else:
         print(hasil)
 
+
+def kelola_barang():
+    while True:
+        print("===== KELOLA BARANG =====")
+        print("1. Tambah barang")
+        print("2. Edit barang")
+        print("3. Hapus Barang")
+        print("0. Kembali ke menu utama")
+
+        while True:
+            try:
+                answer = int(input("Pilih menu: "))
+                break
+            except ValueError:
+                print("Error! Harap masukkan angka!")
+
+        if answer == 0:
+            return
+    
+
 def main_menu():
     while True: 
         print()
-        print('=' * 40)
-        print('          WELCOME TO NEON MARKET          ')
-        print("=" * 40)    
+        print("========== WELCOME TO NEON MARKET ==========")
         print("1. Lihat Inventory")
         print("2. Cari Barang")
         print("3. Kelola Barang")
@@ -86,42 +142,13 @@ def main_menu():
         elif answer == 1:
             check_inventory()
             input('Tekan ENTER untuk kembali ke menu utama')
+
         elif answer == 2:
-            while True:
-                print("===== CARI BARANG =====")
-                print("1. Cari barang berdasarkan ID")
-                print("2. Cari barang berdasarkan nama")
-                print("3. Cari barang berdasarkan jenis")
-                print("4. Cari barang berdasarkan harga")
-                print("5. Cari barang berdasarkan stok")
-                print("0. Kembali ke menu utama")
+            search_menu()
 
-                while True:
-                    try:
-                        search = int(input("Pilih jenis pencarian: "))
-                        break
-                    except ValueError:
-                        print("Error! Harap masukkan angka!")
-                        continue
+        elif answer == 3:
+            kelola_barang()
 
-                if search == 0:
-                    break
-                elif search == 1:
-                    search_id()
-                    input("Tekan ENTER untuk kembali ke menu cari barang")
-                elif search == 2:
-                    search_barang()
-                    input("Tekan ENTER untuk kembali ke menu cari barang")
-                elif search == 3:
-                    search_jenis()
-                    input("Tekan ENTER untuk kembali ke menu cari barang")
-                elif search == 4:
-                    search_harga()
-                    input("Tekan ENTER untuk kembali ke menu cari barang")
-                elif search == 5:
-                    search_stok()
-                    input("Tekan ENTER untuk kembali ke menu cari barang")
-                else:
-                    print("Pilihan tidak tersedia")
-
+        
+            
 main_menu()
