@@ -31,15 +31,28 @@ def search_jenis():
         print(hasil)
 
 def search_harga():
-    harga = int(input('Masukkan Harga Barang Yang Ingin Dicari: '))
+    while True:
+        try:
+            harga = int(input('Masukkan Harga Barang Yang Ingin Dicari: '))
+            break
+        except ValueError:
+            print("Error! Harap masukkan angka!")
+
     hasil = df[df['Harga'] == harga]
     if hasil.empty:
         print('Data tidak ditemukan!')
     else:
         print(hasil)
+        
 
 def search_stok():
-    stok = int(input('Masukkan Stok Barang Yang Ingin Dicari: '))
+    while True:
+        try:
+            stok = int(input('Masukkan Stok Barang Yang Ingin Dicari: '))
+            break
+        except ValueError:
+            print("Error! Harap masukkan angka!")
+            
     hasil = df[df['Stok'] == stok]
     if hasil.empty:
         print("Data tidak ditemukan!")
@@ -59,8 +72,18 @@ def main_menu():
         print("5. Filter Barang")
         print("0. Keluar")
 
-        answer = int(input("Pilih Menu: "))
-        if answer == 1:
+        while True:
+            try:
+                answer = int(input("Pilih Menu: "))
+                break
+            except ValueError:
+                print("Error! Harap masukkan angka!")
+
+        if answer == 0:
+            print("Bye bye!")
+            break
+
+        elif answer == 1:
             check_inventory()
             input('Tekan ENTER untuk kembali ke menu utama')
         elif answer == 2:
@@ -73,30 +96,32 @@ def main_menu():
                 print("5. Cari barang berdasarkan stok")
                 print("0. Kembali ke menu utama")
 
-                search = int(input("Pilih jenis pencarian: "))
+                while True:
+                    try:
+                        search = int(input("Pilih jenis pencarian: "))
+                        break
+                    except ValueError:
+                        print("Error! Harap masukkan angka!")
+                        continue
+
                 if search == 0:
                     break
                 elif search == 1:
                     search_id()
-                    input('Tekan ENTER untuk kembali ke menu cari barang')
+                    input("Tekan ENTER untuk kembali ke menu cari barang")
                 elif search == 2:
                     search_barang()
-                    input('Tekan ENTER untuk kembali ke menu cari barang')
+                    input("Tekan ENTER untuk kembali ke menu cari barang")
                 elif search == 3:
                     search_jenis()
-                    input('Tekan ENTER untuk kembali ke menu cari barang')
+                    input("Tekan ENTER untuk kembali ke menu cari barang")
                 elif search == 4:
                     search_harga()
-                    input('Tekan ENTER untuk kembali ke menu cari barang')
+                    input("Tekan ENTER untuk kembali ke menu cari barang")
                 elif search == 5:
                     search_stok()
-                    input('Tekan ENTER untuk kembali ke menu cari barang')
-
+                    input("Tekan ENTER untuk kembali ke menu cari barang")
                 else:
                     print("Pilihan tidak tersedia")
-                
 
 main_menu()
-
-
-
