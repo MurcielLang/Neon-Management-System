@@ -19,7 +19,7 @@ def search_menu():
                         search = int(input("Pilih jenis pencarian: "))
                         break
                     except ValueError:
-                        print("Error! Harap masukkan angka!")
+                        print("Error! Harap masukkan angka yang tersedia!")
                         continue
 
                 if search == 0:
@@ -179,9 +179,20 @@ def edit_item():
         print("4. Edit stok barang")
         print("0. Kembali")
 
+        try:
+            pilihan_edit = int(input("Pilih menu: "))
+        except ValueError:
+            print("Error! Harap masukkan angka yang tersedia!")
+            continue
+
+        if pilihan_edit == 1:
+            nama_baru = input("Masukkan nama baru: ").title()
+
+            df.loc[df['ID'] == edit_id, "Nama Barang"] = nama_baru
+            df.to_excel("data/Inventory.xlsx", index=False)
+
+
         
-
-
 
 
 def main_menu():
@@ -200,7 +211,7 @@ def main_menu():
                 answer = int(input("Pilih Menu: "))
                 break
             except ValueError:
-                print("Error! Harap masukkan angka!")
+                print("Error! Harap masukkan angka yang tersedia!")
 
         if answer == 0:
             print("Bye bye!")
