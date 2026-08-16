@@ -6,7 +6,7 @@ def check_inventory():
 
 def search_menu():
     while True:
-                print("===== CARI BARANG =====")
+                print("\n===== CARI BARANG =====")
                 print("1. Cari barang berdasarkan ID")
                 print("2. Cari barang berdasarkan nama")
                 print("3. Cari barang berdasarkan jenis")
@@ -100,7 +100,7 @@ def search_stok():
 
 def kelola_barang():
     while True:
-        print("===== KELOLA BARANG =====")
+        print("\n===== KELOLA BARANG =====")
         print("1. Tambah barang")
         print("2. Edit barang")
         print("3. Hapus Barang")
@@ -124,7 +124,7 @@ def kelola_barang():
 
 def add_item():
     global df
-    print("===== TAMBAH BARANG =====")
+    print("\n===== TAMBAH BARANG =====")
     new_id = df['ID'].max() + 1
 
     barang = input("Masukkan Nama Barang: ").title()
@@ -168,11 +168,11 @@ def edit_item():
         return
 
     hasil = df[df["ID"] == edit_id]
-    print("\nData barang: ")
+    print("Data barang: ")
     print(hasil)
 
     while True:
-        print("===== EDIT BARANG =====")
+        print("\n===== EDIT BARANG =====")
         print("1. Edit nama barang")
         print("2. Edit jenis barang")
         print("3. Edit harga barang")
@@ -211,10 +211,10 @@ def edit_item():
                 except ValueError:
                     print("Error! Harga harus berupa angka!")
 
-                df.loc[df["ID"] == edit_id, "Harga"] = harga_baru
-                df.to_excel('data/Inventory.xlsx', index=False)
+            df.loc[df["ID"] == edit_id, "Harga"] = harga_baru
+            df.to_excel('data/Inventory.xlsx', index=False)
 
-                print("Harga berhasil diubah!")
+            print("Harga berhasil diubah!")
 
         elif pilihan_edit == 4:
             while True:
@@ -224,10 +224,10 @@ def edit_item():
                 except ValueError:
                     print('Error stok harus berupa angka')
 
-                df.loc[df["ID"]== edit_id, "Stok"] = stok_baru
-                df.to_excel("data/Inventory.xlsx", index=False)
+            df.loc[df["ID"]== edit_id, "Stok"] = stok_baru
+            df.to_excel("data/Inventory.xlsx", index=False)
 
-                print("Stok berhasil diubah!")
+            print("Stok berhasil diubah!")
 
         elif pilihan_edit == 0:
             return
