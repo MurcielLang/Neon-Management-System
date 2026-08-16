@@ -210,7 +210,16 @@ def edit_item():
                 df.loc[df["ID"] == edit_id, "Harga"] = harga_baru
                 df.to_excel('data/Inventory.xlsx', index=False)
 
-                
+        elif pilihan_edit == 4:
+            while True:
+                try:
+                    stok_baru = int(input("Masukkan stok baru: "))
+                    break
+                except ValueError:
+                    print('Error stok harus berupa angka')
+
+                df.loc[df["ID"]== edit_id, "Stok"] = stok_baru
+                df.to_excel("data/Inventory.xlsx", index=False)
 
 
 
