@@ -191,6 +191,8 @@ def edit_item():
             df.loc[df['ID'] == edit_id, "Nama Barang"] = nama_baru
             df.to_excel("data/Inventory.xlsx", index=False)
 
+            print("Nama barang berhasil diubah!")
+
         elif pilihan_edit == 2:
             jenis_baru = input("Masukkan jenis baru: ").title()
             if jenis_baru == "Atk":
@@ -198,6 +200,8 @@ def edit_item():
 
             df.loc[df["ID"] == edit_id, "Jenis"] = jenis_baru
             df.to_excel("data/Inventory.xlsx", index=False)
+
+            print("Jenis barang berhasil diubah!")
         
         elif pilihan_edit == 3:
             while True:
@@ -210,6 +214,8 @@ def edit_item():
                 df.loc[df["ID"] == edit_id, "Harga"] = harga_baru
                 df.to_excel('data/Inventory.xlsx', index=False)
 
+                print("Harga berhasil diubah!")
+
         elif pilihan_edit == 4:
             while True:
                 try:
@@ -220,6 +226,14 @@ def edit_item():
 
                 df.loc[df["ID"]== edit_id, "Stok"] = stok_baru
                 df.to_excel("data/Inventory.xlsx", index=False)
+
+                print("Stok berhasil diubah!")
+
+        elif pilihan_edit == 0:
+            return
+
+        else:
+            print("Pilihan tidak tersedia!")
 
 
 
