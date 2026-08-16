@@ -115,6 +115,114 @@ def kelola_barang():
 
         if answer == 0:
             return
+
+        elif answer == 1:
+            add_item()
+        elif answer == 2:
+            edit_item()
+
+
+def add_item():
+    global df
+    print("===== TAMBAH BARANG =====")
+    new_id = df['ID'].max() + 1
+
+    barang = input("Masukkan Nama Barang: ").title()
+    jenis = input("Masukkan jenis barang: ").title()
+    if jenis == 'Atk':
+        jenis = "ATK"
+
+    while True:
+        try:
+            harga = int(input("Masukkan harga barang: "))
+            break
+        except ValueError:
+            print("Error! Harap masukkan angka!")
+            continue
+
+    while True:
+        try:
+            stok = int(input("Masukkan stok barang: "))
+            break
+        except ValueError:
+            print("Error! Harap masukkan angka!")
+            continue
+
+    new_data = pd.DataFrame([{
+        "ID" : new_id,
+        "Nama Barang" : barang,
+        "Jenis" : jenis,
+        "Harga" : harga,
+        'Stok' : stok 
+    }])
+
+    df = pd.concat([df , new_data], ignore_index= True)
+    df.to_excel("data/Inventory.xlsx", index = False)
+    print('Barang berhasil ditambahkan!')
+
+
+def edit_item():
+    global df
+    print("===== EDIT BARANG =====")
+
+    edit_id = int(input("Masukkan ID Barang Yang Ingin Diedit: "))
+    if edit_id not in df['ID'].values:
+        print("ID Barang Tidak Ditemukan!")
+        return
+
+    hasil = df[df['ID'] == edit_id]
+    print(hasil)
+    print("1. Edit nama barang")
+    print("2. Edit jenis barang")
+    print("3. Edit harga barang")
+    print("4. Edit stok barang")
+    print("0. Kembali ke menu kelola barang")
+
+    while True:
+        try:
+            edit = int(input("Pilih menu: "))
+            break
+        except ValueError:
+            print("Error! Harap masukkan angka!")
+
+        if edit == 0:
+            return
+
+        elif edit == 1:
+            nama_baru = input("Masukkan nama baru: ").title()
+            df.loc[df["ID"] == edit_id, "Nama Barang"] = nama_baru
+            df.to_excel("data/Inventory.xlsx", index=False)
+            print("Nama barang berhasil diubah!")
+
+        elif edit == 2:
+            jenis_baru = input("Masukkan jenis baru: ").title
+            if jenis_baru == "Atk":
+                jenis_baru = "ATK"
+            df.loc[df["ID"] == edit_id, "Jenis"] = jenis_baru
+
+        elif edit == 3:
+            while  True:
+                try:
+                    harga_baru = int(input("Masukkan harga baru: "))
+                    break
+                except ValueError:
+                    print("Error! Harap masukkan angka!")
+                    continue
+            df.loc[df["ID"] == edit_id, "Harga"] = harga_baru
+
+        elif edit == 4:
+            while True:
+                try:
+                    stok_baru = int(input("Masukkan stok baru: "))
+                    break
+                except ValueError:
+                    print("Error! Harap masukkan angka!")
+            df.loc[df["ID"] == edit_id, "Stok"] = stok_baru
+
+            df.to_excel("data/Inventory.xlsx", index=False)     
+
+
+
     
 
 def main_menu():
