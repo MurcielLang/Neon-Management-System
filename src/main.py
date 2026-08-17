@@ -248,6 +248,27 @@ def edit_item():
             print("Pilihan tidak tersedia!")
 
 
+def delete_item():
+    while True:
+        try:
+            delete_id = int(input("Masukkan ID barang yang ingin dihapus: "))
+            break
+        except ValueError:
+            print("Error! Harap masukkan angka!")
+
+    if delete_id not in df["ID"].values:
+        print("Data tidak ditemukan!")
+        return 
+
+    hasil = df[df["ID"] == delete_id]
+    print("Data barang:")
+    print(hasil)
+
+    
+    
+
+
+
 
 
 def main_menu():
