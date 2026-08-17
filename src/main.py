@@ -43,7 +43,14 @@ def search_menu():
                     print("Pilihan tidak tersedia")
 
 def search_id():
-    ID = int(input("Masukkan ID Barang Yang Ingin Dicari: "))
+    while True:
+            try:
+                ID = int(input("Masukkan ID Barang Yang Ingin Dicari: "))
+                break
+            except ValueError:
+                print('Error! Harap masukkan angka!')
+                
+            
     hasil = df[df['ID'] == ID]
     if hasil.empty:
         print('Data tidak ditemukan!')
@@ -161,7 +168,12 @@ def add_item():
     print('Barang berhasil ditambahkan!')
 
 def edit_item():
-    edit_id = int(input('Masukkan ID barang yang ingin diedit: '))
+    while True:
+        try:
+            edit_id = int(input('Masukkan ID barang yang ingin diedit: '))
+            break
+        except ValueError:
+            print("Error! Harap masukkan angka!")
 
     if edit_id not in df["ID"].values:
         print("Data tidak ditemukan!")
@@ -237,6 +249,7 @@ def edit_item():
 
 
 
+
 def main_menu():
     while True: 
         print()
@@ -268,6 +281,7 @@ def main_menu():
 
         elif answer == 3:
             kelola_barang()
+
 
         
             
