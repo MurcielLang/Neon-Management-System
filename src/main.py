@@ -40,7 +40,7 @@ def search_menu():
                     search_stok()
                     input("Tekan ENTER untuk kembali ke menu cari barang")
                 else:
-                    print("Pilihan tidak tersedia")
+                    print("Error! Harap masukkan angka yang tersedia!")
 
 def search_id():
     while True:
@@ -127,6 +127,11 @@ def kelola_barang():
             add_item()
         elif answer == 2:
             edit_item()
+        elif answer == 3:
+            delete_item()
+
+        else:
+            print("Error! Harap masukkan angka yang tersedia!")
 
 
 def add_item():
@@ -264,13 +269,24 @@ def delete_item():
     print("Data barang:")
     print(hasil)
 
-    
-    
+    while True:
+        confirm = input("Yakin ingin menghapus barang ini? (y/n): ").lower()
 
+        if confirm =="y":
+            break
+        elif confirm == "n":
+            print("Penghapusan dibatalkan")
+            return 
+        else:
+            print("Masukkan y atau n!")
 
+    index_barang = df[df["ID"] == delete_id].index
+    df.drop(index_barang, inplace=True)
+    df.to_excel("data/Inventory.xlsx", index=False)
 
+    print("Barang berhasil dihapus!")
 
-
+        
 def main_menu():
     while True: 
         print()
@@ -302,6 +318,9 @@ def main_menu():
 
         elif answer == 3:
             kelola_barang()
+
+        else:
+            print("Error! Harap masukkan angka yang sudah tersedia!")
 
 
         
