@@ -290,7 +290,7 @@ def delete_item():
 def main_menu():
     while True: 
         print()
-        print("========== WELCOME TO NEON MARKET ==========")
+        print("========== WELCOME TO NEON STORE ==========")
         print("1. Lihat Inventory")
         print("2. Cari Barang")
         print("3. Kelola Barang")

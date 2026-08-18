@@ -1,10 +1,10 @@
 # Neon Management System
 
-A simple supermarket inventory management system built with Python and Excel.
+A simple store inventory management system built with Python and Excel.
 
 ## About
 
-Neon Management System is my first Python project. The project is designed to manage a fictional supermarket inventory data.
+Neon Management System is my first Python project. The project is designed to manage a fictional store inventory data.
 
 ## Features
 - View inventory 
