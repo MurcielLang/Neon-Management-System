@@ -286,6 +286,21 @@ def delete_item():
 
     print("Barang berhasil dihapus!")
 
+
+
+def sort_item():
+    while True:
+        print("===== SORTIR BARANG =====")
+        print("1. Berdasarkan ID barang")
+        print("2. Berdasarkan nama barang")
+        print("3. Berdasarkan jenis barang")
+        print("4. Berdasarkan harga barang")
+        print("5. Berdasarkan stok barang")
+        print("0. Kembali")
+
+
+
+
         
 def main_menu():
     while True: 
@@ -318,6 +333,9 @@ def main_menu():
 
         elif answer == 3:
             kelola_barang()
+
+        elif answer == 4:
+            sort_item()
 
         else:
             print("Error! Harap masukkan angka yang sudah tersedia!")
