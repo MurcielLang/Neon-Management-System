@@ -286,38 +286,11 @@ def delete_item():
 
     print("Barang berhasil dihapus!")
 
-def sort_id():
-
-    print("\nUrutan:")
-    print("1. Terkecil >>> Terbesar")
-    print("2. Terbesar >>> Terkecil")
-
-    while True:
-        try:
-            pilihan = int(input("Pilih menu: "))
-        except ValueError:
-            print("Error! Harap masukkan pilihan menu yang sudah tersedia!")
-            continue
-
-        if pilihan == 1:
-            hasil = df.sort_values("ID")
-            print(hasil)
-            break
-
-        elif pilihan == 2:
-            hasil = df.sort_values("ID", ascending=False)
-            print(hasil)
-            break
-
-        else:
-            print("Error! Harap pilih menu yang sudah tersedia!")
-        
-
 def sort_name():
     
     print("\nUrutan:")
-    print("1. Terkecil >>> Terbesar")
-    print("2. Terbesar >>> Terkecil")
+    print("1. A >>> Z")
+    print("2. Z >>> A ")
 
     while True:
         try:
@@ -342,8 +315,8 @@ def sort_name():
 def sort_type():
     
     print("\nUrutan:")
-    print("1. Terkecil >>> Terbesar")
-    print("2. Terbesar >>> Terkecil")
+    print("1. A >>> Z")
+    print("2. Z >>> A")
 
     while True:
         try:
@@ -368,8 +341,8 @@ def sort_type():
 def sort_price():
     
     print("\nUrutan:")
-    print("1. Terkecil >>> Terbesar")
-    print("2. Terbesar >>> Terkecil")
+    print("1. Termurah >>> Termahal")
+    print("2. Termahal >>> Termurah")
 
     while True:
         try:
@@ -420,16 +393,15 @@ def sort_stock():
 def sort_inventory():
     while True:
         print("\n===== SORTIR BARANG =====")
-        print("1. Berdasarkan ID barang")
-        print("2. Berdasarkan nama barang")
-        print("3. Berdasarkan jenis barang")
-        print("4. Berdasarkan harga barang")
-        print("5. Berdasarkan stok barang")
+        print("1. Berdasarkan Nama barang")
+        print("2. Berdasarkan Jenis barang")
+        print("3. Berdasarkan Harga barang")
+        print("4. Berdasarkan Stok barang")
         print("0. Kembali")
 
         while True:
             try:
-                sortir = int(input("Pilih menu:"))
+                sortir = int(input("Pilih menu: "))
                 break
             except ValueError:
                 print("Error! Harap masukkan pilihan menu yang tersedia!")
@@ -438,24 +410,21 @@ def sort_inventory():
             return 
 
         elif sortir == 1:
-            sort_id()
-
-        elif sortir == 2:
             sort_name()
 
-        elif sortir == 3:
+        elif sortir == 2:
             sort_type()
 
-        elif sortir == 4:
+        elif sortir == 3:
             sort_price()
 
-        elif sortir == 5:
+        elif sortir == 4:
             sort_stock()
 
+        else:
+            print("Error! Harap masukkan pilihan menu yang sudah tersedia!")
 
 
-
-        
 def main_menu():
     while True: 
         print()
