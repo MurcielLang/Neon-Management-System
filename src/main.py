@@ -365,6 +365,32 @@ def sort_type():
         else:
             print("Error! Harap pilih menu yang sudah tersedia!")
 
+def sort_price():
+    
+    print("\nUrutan:")
+    print("1. Terkecil >>> Terbesar")
+    print("2. Terbesar >>> Terkecil")
+
+    while True:
+        try:
+            pilihan = int(input("Pilih menu: "))
+        except ValueError:
+            print("Error! Harap masukkan pilihan menu yang sudah tersedia!")
+            continue
+
+        if pilihan == 1:
+            hasil = df.sort_values("Harga")
+            print(hasil)
+            break
+
+        elif pilihan == 2:
+            hasil = df.sort_values("Harga", ascending=False)
+            print(hasil)
+            break
+
+        else:
+            print("Error! Harap pilih menu yang sudah tersedia!")
+
 def sort_inventory():
     while True:
         print("\n===== SORTIR BARANG =====")
@@ -393,6 +419,9 @@ def sort_inventory():
 
         elif sortir == 3:
             sort_type()
+
+        elif sortir == 4:
+            sort_price()
 
 
 
