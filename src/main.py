@@ -4,7 +4,7 @@ df = pd.read_excel("data/Inventory.xlsx")
 def check_inventory():
     print(df)
 
-def search_menu():
+def search_inventory():
     while True:
                 print("\n===== CARI BARANG =====")
                 print("1. Cari barang berdasarkan ID")
@@ -19,7 +19,7 @@ def search_menu():
                         search = int(input("Pilih jenis pencarian: "))
                         break
                     except ValueError:
-                        print("Error! Harap masukkan angka yang tersedia!")
+                        print("Error! Harap masukkan pilihan menu yang tersedia!")
                         continue
 
                 if search == 0:
@@ -40,7 +40,7 @@ def search_menu():
                     search_stok()
                     input("Tekan ENTER untuk kembali ke menu cari barang")
                 else:
-                    print("Error! Harap masukkan angka yang tersedia!")
+                    print("Error! Harap masukkan pilihan menu yang tersedia!")
 
 def search_id():
     while True:
@@ -105,7 +105,7 @@ def search_stok():
         print(hasil)
 
 
-def kelola_barang():
+def manage_inventory():
     while True:
         print("\n===== KELOLA BARANG =====")
         print("1. Tambah barang")
@@ -131,7 +131,7 @@ def kelola_barang():
             delete_item()
 
         else:
-            print("Error! Harap masukkan angka yang tersedia!")
+            print("Error! Harap masukkan pilihan menu yang tersedia!")
 
 
 def add_item():
@@ -199,7 +199,7 @@ def edit_item():
         try:
             pilihan_edit = int(input("Pilih menu: "))
         except ValueError:
-            print("Error! Harap masukkan angka yang tersedia!")
+            print("Error! Harap masukkan pilihan menu yang tersedia!")
             continue
 
         if pilihan_edit == 1:
@@ -286,11 +286,37 @@ def delete_item():
 
     print("Barang berhasil dihapus!")
 
+def sort_id():
 
+    print("\nUrutan:")
+    print("1. Terkecil >>> Terbesar")
+    print("2. Terbesar >>> Terkecil")
 
-def sort_item():
     while True:
-        print("===== SORTIR BARANG =====")
+        try:
+            pilihan = int(input("Pilih menu: "))
+        except ValueError:
+            print("Error! Harap masukkan pilihan menu yang sudah tersedia!")
+            continue
+
+        if pilihan == 1:
+            hasil = df.sort_values("ID")
+            print(hasil)
+            break
+
+        elif pilihan == 2:
+            hasil = df.sort_values("ID", ascending=False)
+            print(hasil)
+            break
+
+        else:
+            print("Error! Harap pilih menu yang sudah tersedia!")
+        
+
+
+def sort_inventory():
+    while True:
+        print("\n===== SORTIR BARANG =====")
         print("1. Berdasarkan ID barang")
         print("2. Berdasarkan nama barang")
         print("3. Berdasarkan jenis barang")
@@ -298,6 +324,18 @@ def sort_item():
         print("5. Berdasarkan stok barang")
         print("0. Kembali")
 
+        while True:
+            try:
+                sortir = int(input("Pilih menu:"))
+                break
+            except ValueError:
+                print("Error! Harap masukkan pilihan menu yang tersedia!")
+
+        if sortir == 0:
+            return 
+
+        elif sortir == 1:
+            sort_id()
 
 
 
@@ -329,16 +367,16 @@ def main_menu():
             input('Tekan ENTER untuk kembali ke menu utama')
 
         elif answer == 2:
-            search_menu()
+            search_inventory()
 
         elif answer == 3:
-            kelola_barang()
+            manage_inventory()
 
         elif answer == 4:
-            sort_item()
+            sort_inventory()
 
         else:
-            print("Error! Harap masukkan angka yang sudah tersedia!")
+            print("Error! Harap masukkan pilihan menu yang sudah tersedia!")
 
 
         
