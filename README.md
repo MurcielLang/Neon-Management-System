@@ -206,7 +206,7 @@ Most importantly, this project gave me experience in **turning an idea into a wo
 
 ## 👤 Author
 
-**Murcielago**
+**Kurta**
 
 GitHub: [@MurcielLang](https://github.com/MurcielLang)
 
