@@ -440,6 +440,25 @@ def filter_inventory():
             except ValueError:
                 print("Error! harap masukkan pilihan menu yang sudah tersedia!")
                 
+        if answer == 0:
+            return
+
+        elif answer == 1:
+            jenis = input("Masukkan jenis barang yang ingin difilter: ").title()
+
+            if jenis == "Atk":
+                jenis = "ATK"
+
+            hasil = df[df["Jenis"] == jenis]
+
+            if hasil.empty:
+                print("Data tidak ditemukan!")
+
+            else:
+                print(hasil)
+
+
+
 
 
 
