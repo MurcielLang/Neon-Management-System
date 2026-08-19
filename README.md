@@ -204,30 +204,6 @@ Most importantly, this project gave me experience in **turning an idea into a wo
 
 ---
 
-## 🔮 What's Next?
-
-NeonStore V1 is complete, but the Neon project is not stopping here. 🚀
-
-### 🌐 NeonStore Web
-
-The next step is to turn NeonStore into a **web-based inventory management system** with a proper user interface.
-
-The web version will aim to bring the existing inventory features into a more interactive and user-friendly experience.
-
-Planned goals include:
-
-* Web-based interface
-* Interactive inventory management
-* Add, edit, and delete items
-* Search, sorting, and filtering
-* Better user experience
-* Connecting the web interface with the existing inventory system
-
-**From a terminal application to a web application. 🌐🚀**
-
-
----
-
 ## 👤 Author
 
 **Murcielago**
