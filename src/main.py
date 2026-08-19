@@ -425,6 +425,24 @@ def sort_inventory():
             print("Error! Harap masukkan pilihan menu yang sudah tersedia!")
 
 
+def filter_inventory():
+    while True:
+        print("\n===== FILTER BARANG =====")
+        print("1. Filter jenis barang")
+        print("2. Filter harga barang")
+        print("3. Filter stok barang")
+        print("0. Kembali")
+
+        while True:
+            try: 
+                answer = int(input("Pilih menu: "))
+                break
+            except ValueError:
+                print("Error! harap masukkan pilihan menu yang sudah tersedia!")
+                
+
+
+
 def main_menu():
     while True: 
         print()
@@ -459,6 +477,9 @@ def main_menu():
 
         elif answer == 4:
             sort_inventory()
+
+        elif answer == 5:
+            filter_inventory()
 
         else:
             print("Error! Harap masukkan pilihan menu yang sudah tersedia!")
