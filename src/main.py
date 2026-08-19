@@ -488,8 +488,27 @@ def filter_price():
             else:
                 print(hasil)
 
+        else:
+            print("Error! Harap masukkan pilihan menu yang sudah tersedia!")
 
 
+def filter_stock():
+    while True:
+        print("\n===== FILTER STOK =====")
+        print("1. Lebih dari")
+        print("2. Kurang dari")
+        print("3. Sama dengan")
+        print("0. Kembali")
+
+        while True:
+            try:
+                answer = int(input('Pilih menu: '))
+                break
+            except ValueError:
+                print("Error! Harap masukkan pilihan menu yang sudah tersedia!")
+
+        if answer == 0:
+            break
 
 
 def filter_inventory():
@@ -526,6 +545,12 @@ def filter_inventory():
 
         elif answer == 2:
             filter_price()
+
+        elif answer == 3:
+            filter_stock()
+
+        else:
+            print("Error! Harap masukkan pilihan menu yang sudah tersedia!")
 
 
 
