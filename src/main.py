@@ -526,6 +526,24 @@ def filter_stock():
             else:
                 print(hasil)
 
+        
+        elif answer == 2:
+            while True:
+                try:
+                    stok = int(input("Masukkan stok: "))
+                    break
+                except ValueError:
+                    print("Error! Harap masukkan angka!")
+
+            hasil = df[df["Stok"] < stok]
+            if hasil.empty:
+                print("Data tidak ditemukan!")
+
+            else:
+                print(hasil)
+
+
+
 
 
 
