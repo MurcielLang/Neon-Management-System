@@ -475,6 +475,23 @@ def filter_inventory():
                 if answer == 0:
                     break
 
+                elif answer == 1:
+                    while True:
+                        try:
+                            harga = int(input("Masukkan harga: "))
+                            break
+                        except ValueError:
+                            print("Error! Harap masukkan angka!")
+
+                    hasil = df[df["Harga"] > harga]
+                    if hasil.empty:
+                        print("Data tidak ditemukan!")
+
+                    else:
+                        print(hasil)
+
+                    
+
 
 
 def main_menu():
