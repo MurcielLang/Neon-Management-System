@@ -425,6 +425,40 @@ def sort_inventory():
             print("Error! Harap masukkan pilihan menu yang sudah tersedia!")
 
 
+def filter_price():
+    while True:
+        print("\n===== FILTER HARGA =====")
+        print("1. Lebih dari")
+        print("2. Kurang dari")
+        print("3. Sama dengan")
+        print("0. Kembali")
+
+        while True:
+            try:
+                answer = int(input('Pilih menu: '))
+                break
+            except ValueError:
+                print("Error! Harap masukkan pilihan menu yang sudah tersedia!")
+
+        if answer == 0:
+            break
+
+        elif answer == 1:
+            while True:
+                try:
+                    harga = int(input("Masukkan harga: "))
+                    break
+                except ValueError:
+                    print("Error! Harap masukkan angka!")
+
+            hasil = df[df["Harga"] > harga]
+            if hasil.empty:
+                print("Data tidak ditemukan!")
+
+            else:
+                print(hasil)
+
+
 def filter_inventory():
     while True:
         print("\n===== FILTER BARANG =====")
@@ -458,37 +492,9 @@ def filter_inventory():
                 print(hasil)
 
         elif answer == 2:
-            while True:
-                print("\n===== FILTER HARGA =====")
-                print("1. Lebih dari")
-                print("2. Kurang dari")
-                print("3. Sama dengan")
-                print("0. Kembali")
+            filter_price()
 
-                while True:
-                    try:
-                        answer = int(input('Pilih menu: '))
-                        break
-                    except ValueError:
-                        print("Error! Harap masukkan pilihan menu yang sudah tersedia!")
 
-                if answer == 0:
-                    break
-
-                elif answer == 1:
-                    while True:
-                        try:
-                            harga = int(input("Masukkan harga: "))
-                            break
-                        except ValueError:
-                            print("Error! Harap masukkan angka!")
-
-                    hasil = df[df["Harga"] > harga]
-                    if hasil.empty:
-                        print("Data tidak ditemukan!")
-
-                    else:
-                        print(hasil)
 
                     
 
