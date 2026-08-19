@@ -457,8 +457,23 @@ def filter_inventory():
             else:
                 print(hasil)
 
+        elif answer == 2:
+            while True:
+                print("\n===== FILTER HARGA =====")
+                print("1. Lebih dari")
+                print("2. Kurang dari")
+                print("3. Sama dengan")
+                print("0. Kembali")
 
+                while True:
+                    try:
+                        answer = int(input('Pilih menu: '))
+                        break
+                    except ValueError:
+                        print("Error! Harap masukkan pilihan menu yang sudah tersedia!")
 
+                if answer == 0:
+                    break
 
 
 
